@@ -24,7 +24,8 @@
             <td th:text="${product.productQuantity}"></td>
             <td>
                 <a th:href="@{/product/edit/{id}(id=${product.productId})}" class="btn btn-primary btn-sm">Edit</a>
-            </td>
+                <a th:href="@{/product/delete/{id}(id=${product.productId})}" class="btn btn-danger btn-sm"   th:attr="onclick=|return confirm('Delete ${product.productName}?')|">Delete</a>
+            </td>   
         </tr>
         </tbody>
     </table>
