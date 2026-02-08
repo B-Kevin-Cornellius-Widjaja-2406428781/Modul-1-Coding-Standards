@@ -29,4 +29,14 @@ public class ProductRepository {
         return null;
     }
 
+    public Product deleteById(String id) {
+        for (Product product : productData) {
+            if (product.getProductId().equals(id)) {
+                productData.remove(product);
+                return product;
+            }
+        }
+        return null;
+    }
+
 }
