@@ -30,13 +30,11 @@ public class ProductRepository {
     }
 
     public Product deleteById(String id) {
-        for (Product product : productData) {
-            if (product.getProductId().equals(id)) {
-                productData.remove(product);
-                return product;
-            }
+        Product product = findById(id);
+        if (product != null) {
+            productData.remove(product);
         }
-        return null;
+        return product;
     }
 
 }
