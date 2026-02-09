@@ -7,18 +7,19 @@
 </head>
 <body>
 
-<div class="container my-2">
+<div class="container my-4">
     <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
     <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
     
-    <h2>Product' List</h2>
+    <h2>Product List</h2>
     <a th:href="@{/product/create}" class="btn btn-primary btn-sm mb-3">Create Product</a>
 
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
         <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">Quantity</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -27,8 +28,8 @@
             <td th:text="${product.productQuantity}"></td>
             <td>
                 <a th:href="@{/product/edit/{id}(id=${product.productId})}" class="btn btn-primary btn-sm">Edit</a>
-                <a th:href="@{/product/delete/{id}(id=${product.productId})}" class="btn btn-danger btn-sm"   th:attr="onclick=|return confirm('Delete ${product.productName}?')|">Delete</a>
-            </td>   
+                <a th:href="@{/product/delete/{id}(id=${product.productId})}" class="btn btn-danger btn-sm" th:attr="onclick=|return confirm('Delete ${product.productName}?')|">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>
