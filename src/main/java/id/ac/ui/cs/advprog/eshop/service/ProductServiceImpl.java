@@ -37,12 +37,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product update(String id, Product updatedProduct) {
-        Product product = this.findById(id);
-        if (product != null) {
-            product.setProductName(updatedProduct.getProductName());
-            product.setProductQuantity(updatedProduct.getProductQuantity());
-        }
-        return product;
+        return productRepository.update(id, updatedProduct);
     }
 
     @Override

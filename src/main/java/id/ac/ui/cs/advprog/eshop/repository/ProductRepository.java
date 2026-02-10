@@ -37,4 +37,13 @@ public class ProductRepository {
         return product;
     }
 
+    public Product update(String id, Product updatedProduct) {
+        Product product = findById(id);
+        if (product != null) {
+            product.setProductName(updatedProduct.getProductName());
+            product.setProductQuantity(updatedProduct.getProductQuantity());
+        }
+        return product;
+    }
+
 }
