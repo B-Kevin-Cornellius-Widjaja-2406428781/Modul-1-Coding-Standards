@@ -12,7 +12,7 @@
     
     <h3>Edit Product</h3>
 
-    <form th:action="@{/product/edit/{id}(id=${product.productId})}" th:object="${product}" method="post">
+    <form th:action="@{/product/edit/{id}(id=${product.productId})}" th:object="${product}" method="post" onsubmit="if(!document.getElementById('quantityInput').value)document.getElementById('quantityInput').value='0';">
         <div class="form-group">
             <label for="nameInput">Name</label>
             <input th:field="*{productName}" type="text" class="form-control col-4" id="nameInput" placeholder="Enter product name">
